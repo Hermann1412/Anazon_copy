@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Valentine?</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #bee {
+        width: 150px;
+        margin: 50px auto;
+    }
+    #heart {
+        width: 100px;
+        height: 100px;
+        display: none;
+    }
+</style>
+</head>
+<body>
+    <h1>hii Bee will You Be My Valentine?</h1>
+    <img id="bee" src="https://i.imgur.com/s5CtnIt.png" alt="Bee">
+    <p id="question">Bee, will you be my valentine?</p>
+    <button id="askBtn" onclick="askBee()">Ask</button>
+    <canvas id="heart" width="200" height="200"></canvas>
+
+    <script>
+        const canvas = document.getElementById('heart');
+        const ctx = canvas.getContext('2d');
+        const beeImage = document.getElementById('bee');
+        const questionText = document.getElementById('question');
+        const askButton = document.getElementById('askBtn');
+        const heartImage = new Image();
+        heartImage.src = 'https://i.imgur.com/f2RvxX9.png';
+        
+        function askBee() {
+            const answer = confirm("Bee, will you be my valentine?");
+            if (answer) {
+                showHeart();
+            } else {
+                alert("That's okay, Bee! Maybe next time.");
+            }
+        }
+        
+        function showHeart() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(heartImage, 0, 0, canvas.width, canvas.height);
+            beeImage.style.display = 'none';
+            questionText.style.display = 'none';
+            askButton.style.display = 'none';
+            canvas.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
