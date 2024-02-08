@@ -658,5 +658,18 @@ const products = [
       "apparel",
       "mens"
     ]
+  }, {
+    id: "bc4847e9-5323-413f-b7cf-56fde044a955",
+    image: "images/products/camera.jpg",
+    name: "Camere X-10",
+    rating: {
+      stars: 5,
+      count: 2104
+    },
+    priceCents: 3500,
+    keywords:[
+      "camera",
+      "visual"
+    ]
   }
 ];
