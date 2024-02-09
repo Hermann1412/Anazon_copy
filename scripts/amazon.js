@@ -1,5 +1,6 @@
 //this code loop throught the product and create all the
 //html we need
+import { cart } from '../data/cart.js';
 
 let productsHTML = '';
 
