@@ -1,15 +1,10 @@
 import {cart, removeFromCart, updateDeliveryOption} from '../../data/cart.js';
-import {products, getProduct} from '../../data/products.js'; //importing from a outside folder ../data/products,js
-import { formatCurrency } from '../utils/money.js'; //importing from the current folder ./utils/money.js
+import {products, getProduct} from '../../data/products.js'; //from a outside folder ../data/products,js
+import { formatCurrency } from '../utils/money.js'; //from the current folder ./utils/money.js
 import {hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js'; //code coming from the internet(loading from the internet)
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import {deliveryOptions, getDeliveryOption} from '../../data/deliveryOptions.js'
-
-hello();
-
-const today = dayjs();
-const deliveryDate = today.add(7, 'days');
-console.log(deliveryDate.format('dddd, MMMM D'));
+import { renderPaymentSummary } from './paymentSummary.js';
 
 export function renderOrderSummary() {
   let cartSummaryHTML = '';
@@ -129,6 +124,8 @@ export function renderOrderSummary() {
           `.js-cart-item-container-${productId}` //creat a string which will get us a specific element that we want to remove
         );
         container.remove();
+
+        renderPaymentSummary(); //using MVC (to regenerate the HTML or the view)
       });
     });
 
@@ -138,6 +135,7 @@ export function renderOrderSummary() {
         const {productId, deliveryOptionId} = element.dataset;
         updateDeliveryOption(productId, deliveryOptionId);
         renderOrderSummary();
+        renderPaymentSummary(); //Using MVC
       });
     });
 }
