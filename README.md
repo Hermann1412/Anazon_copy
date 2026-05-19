@@ -483,7 +483,7 @@ Frontend                    Backend                      Stripe
 ## Admin Panel
 
 Local: `http://localhost:3000/admin/login`
-Production: `https://abona-backend.onrender.com/admin/login`
+Production: `https://abona.onrender.com/admin/login`
 
 Protected by `JWT_ADMIN_SECRET`. Features:
 - Dashboard with sales overview
